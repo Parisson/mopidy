@@ -131,7 +131,7 @@ def load(context, name, playlist_slice=slice(0, None)):
 
     with warnings.catch_warnings():
         warnings.filterwarnings('ignore', 'tracklist.add.*"tracks".*')
-        context.core.tracklist.add(playlist.tracks[playlist_slice]).get()
+        context.core.tracklist.add(uris=[track.uri for track in playlist.tracks[playlist_slice]]).get()
 
 
 @protocol.commands.add('playlistadd')
